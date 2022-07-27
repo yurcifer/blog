@@ -1,0 +1,42 @@
+.title {
+  text-align: center;
+  color: pink;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 15rem;
+
+  button {
+    background-color: pink;
+    border: none;
+    height: 2rem;
+    transition-duration: 100ms;
+    color: white;
+    font-size: 1.1rem;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px black;
+  font-size: 1.05rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  color: grey;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
