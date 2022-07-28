@@ -20,6 +20,9 @@ form {
     &:active {
       transform: scale(0.95);
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -27,11 +30,12 @@ input {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px grey;
   font-size: 1.05rem;
 
   &:focus {
     outline: none;
+    border-color: #D4BFDD;
   }
 }
 
