@@ -65,6 +65,18 @@ app.post('/sessionLogin', (req, res) => {
     );
 });
 
+app.post('/sessionLogout', (req, res) => {
+  console.log('sessionLogout request');
+
+  try {
+    res.clearCookie('session');
+    res.end(JSON.stringify({ status: 'success' }));
+  } catch (e) {
+    res.status(401).send();
+    console.log(e);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

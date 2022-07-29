@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import checkAuth from './API/checkAuth';
+import logOut from './API/logOut';
 import './App.css';
 
 function App() {
@@ -13,9 +14,14 @@ function App() {
       setIsLoading(false);
     });
   }, []);
+
+  function logOutClick() {
+    logOut();
+    setIsAuth(false);
+  }
   return (
     <div className="App">
-      <header></header>
+      <header>{isAuth ? <button onClick={logOutClick}>sign out</button> : ''}</header>
       {isLoading ? <h1>Loading</h1> : isAuth ? <h1>admin</h1> : <h1>blog</h1>}
     </div>
   );
