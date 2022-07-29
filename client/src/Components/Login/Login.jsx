@@ -3,13 +3,19 @@ import { useState } from 'react';
 import styles from './Login.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import useFirebaseInit from '../../hooks/useFirebaseInit';
+import { useStore } from 'react-redux';
 
 export default function Login({ auth }) {
   const [login, setLogin] = useState('');
   const [pwd, setPwd] = useState('');
   const navigate = useNavigate();
+  const store = useStore();
+  useFirebaseInit();
 
   function submit(e) {
+    console.log(store.getState().firebase);
+    const {auth} = store.getState().firebase;
     e.preventDefault();
     setLogin('');
     setPwd('');
