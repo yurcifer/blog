@@ -1,4 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
+import checkAuth from './API/checkAuth';
 import './App.css';
 
 function App() {
@@ -7,20 +8,10 @@ function App() {
 
   useLayoutEffect(() => {
     setIsLoading(true);
-    fetch('http://localhost:5000/checkAuth', {
-      credentials: 'include',
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(json => {
-        console.log(json);
-        setIsAuth(json.auth);
-        setIsLoading(false);
-      });
+    checkAuth().then(result => {
+      setIsAuth(result);
+      setIsLoading(false);
+    });
   }, []);
   return (
     <div className="App">
