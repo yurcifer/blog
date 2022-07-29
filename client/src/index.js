@@ -8,12 +8,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth, setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkfgvZgIK3cVFGNxBgB2uudggatMsP84Q",
-  authDomain: "blog-e9e07.firebaseapp.com",
-  projectId: "blog-e9e07",
-  storageBucket: "blog-e9e07.appspot.com",
-  messagingSenderId: "661437548761",
-  appId: "1:661437548761:web:b6b3e43b3de7ff5e25d6c8"
+  apiKey: "AIzaSyD8OiwHmRSQWjpW4JZtBkV33zgPXulVJVk",
+  authDomain: "blog-390d7.firebaseapp.com",
+  projectId: "blog-390d7",
+  storageBucket: "blog-390d7.appspot.com",
+  messagingSenderId: "623218025572",
+  appId: "1:623218025572:web:5511ace08267f77e2b2b71"
 };
 
 const app = initializeApp(firebaseConfig);
