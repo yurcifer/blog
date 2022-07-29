@@ -18,6 +18,7 @@ app.use(cookieParser());
 // app.use(cors());
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
+  // TODO: setup cors
   res.header('Access-Control-Allow-Origin', req.headers.origin);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,UPDATE,OPTIONS');
   res.header(
@@ -34,19 +35,18 @@ app.post('/checkAuth', (req, res) => {
     .auth()
     .verifySessionCookie(sessionCookie, true)
     .then(() => {
-      res.json({ auth: true });
+      console.log('auth ok');
+      res.status(200).send();
     })
     .catch(error => {
       console.log('auth failed');
-      res.json({ auth: false });
-      res.status(401).send('UNAUTHORIZED REQUEST');
+      res.status(401).send();
     });
 });
 
 app.post('/sessionLogin', (req, res) => {
   console.log('sessionLogin request');
   const idToken = req.body.idToken.toString();
-
   const expiresIn = 60 * 60 * 24 * 5 * 1000;
 
   admin
@@ -58,8 +58,9 @@ app.post('/sessionLogin', (req, res) => {
         res.cookie('session', sessionCookie, options);
         res.end(JSON.stringify({ status: 'success' }));
       },
-      error => {
-        res.status(401).send('UNAUTHORIZED REQUEST');
+      e => {
+        res.status(401).send();
+        console.log(e);
       }
     );
 });
