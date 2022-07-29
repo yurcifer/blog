@@ -54,7 +54,7 @@ app.post('/sessionLogin', (req, res) => {
     .createSessionCookie(idToken, { expiresIn })
     .then(
       sessionCookie => {
-        const options = { maxAge: expiresIn, httpOnly: false, Path: '/' };
+        const options = { maxAge: expiresIn, httpOnly: true, Path: '/' };
         res.cookie('session', sessionCookie, options);
         res.end(JSON.stringify({ status: 'success' }));
       },
