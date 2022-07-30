@@ -12,7 +12,6 @@ export default function GoogleAuth({ navigateIfAuth }) {
   function signIn() {
     signInWithPopup(auth, provider)
       .then(async result => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = await result.user.getIdToken();
         // The signed-in user info.
