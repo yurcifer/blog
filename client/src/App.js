@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from 'react';
 import checkAuth from './API/checkAuth';
 import logOut from './API/logOut';
 import './App.css';
+import Admin from './pages/Admin';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -21,8 +22,7 @@ function App() {
   }
   return (
     <div className="App">
-      <header>{isAuth ? <button onClick={logOutClick}>sign out</button> : ''}</header>
-      {isLoading ? <h1>Loading</h1> : isAuth ? <h1>admin</h1> : <h1>blog</h1>}
+      {isLoading ? <h1>Loading</h1> : !isAuth ? <h3>logged out</h3> : <h3>Article but logged in</h3>}
     </div>
   );
 }
